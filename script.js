@@ -55,6 +55,33 @@
   setInterval(atualizarContador,1000);
   atualizarContador();
 
+  const musica = document.getElementById("musica");
+const btn = document.getElementById("btnMusica");
+
+let tocando = false;
+
+function toggleMusica() {
+  if (tocando) {
+    musica.pause();
+    btn.innerHTML = "🔇";
+  } else {
+    musica.volume = 0.3; // volume suave
+    musica.play();
+    btn.innerHTML = "🎶";
+  }
+  tocando = !tocando;
+}
+
+// inicia após interação do usuário
+document.body.addEventListener("click", () => {
+  if (!tocando) {
+    musica.volume = 0.3;
+    musica.play();
+    tocando = true;
+    btn.innerHTML = "🎶";
+  }
+}, { once: true });
+
   // CARROSSEL
   const track=document.getElementById('track');
   let index=0;

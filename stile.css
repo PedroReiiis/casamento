@@ -18,6 +18,128 @@ body { margin:0; font-family:'Poppins', sans-serif; background:#faf7f2; }
   align-items: center;
 }
 
+#btnMusica {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+
+  background: linear-gradient(135deg, #c6a15b, #e6c07b);
+  color: white;
+  border: none;
+
+  font-size: 20px;
+  cursor: pointer;
+
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  z-index: 999;
+}
+
+/* BANNER PREMIUM */
+.banner-local.premium {
+  position: relative;
+  padding: 80px 20px;
+  background: url("https://images.unsplash.com/photo-1519741497674-611481863552") center/cover no-repeat;
+  display: flex;
+  justify-content: center;
+  margin-top: 2%;
+}
+
+/* camada escura elegante */
+.banner-local .overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+}
+
+/* conteúdo */
+.banner-local .conteudo {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(10px);
+
+  padding: 40px;
+  border-radius: 20px;
+
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+  max-width: 1000px;
+  width: 100%;
+}
+
+/* texto */
+.banner-local .info {
+  flex: 1;
+  color: white;
+}
+
+.banner-local h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  margin-bottom: 15px;
+}
+
+.banner-local .local {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.banner-local .hora {
+  font-size: 22px;
+  color: #e6c07b;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+/* botão elegante */
+.btn-mapa {
+  display: inline-block;
+  
+  border-radius: 30px;
+  
+
+  background: linear-gradient(135deg, #c6a15b, #e6c07b);
+  color: white;
+  text-decoration: none;
+
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.btn-mapa:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+/* mapa */
+.banner-local .mapa iframe {
+  width: 350px;
+  height: 250px;
+  border-radius: 16px;
+  border: none;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+  .banner-local .conteudo {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .banner-local .mapa iframe {
+    width: 100%;
+  }
+}
+
 @media (max-width: 768px) {
   header {
     padding: 80px 15px;

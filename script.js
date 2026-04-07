@@ -97,3 +97,31 @@ document.body.addEventListener("click", () => {
   }
 
   setInterval(()=>mover(1),4000);
+
+  
+const intro = document.getElementById("intro");
+
+// inicia após interação (necessário)
+document.body.addEventListener("click", () => {
+  
+  musica.volume = 0;
+  musica.play();
+
+  // fade-in da música
+  let vol = 0;
+  const fade = setInterval(() => {
+    if (vol < 0.3) {
+      vol += 0.03;
+      musica.volume = vol;
+    } else {
+      clearInterval(fade);
+    }
+  }, 200);
+
+}, { once: true });
+
+
+// some com a tela depois de alguns segundos
+setTimeout(() => {
+  intro.classList.add("fade-out");
+}, 4000);

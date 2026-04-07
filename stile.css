@@ -103,7 +103,7 @@ body { margin:0; font-family:'Poppins', sans-serif; background:#faf7f2; }
 /* botão elegante */
 .btn-mapa {
   display: inline-block;
-  padding: 10px 100px;
+  padding: 12px 25px;
   border-radius: 30px;
   background: linear-gradient(135deg, #c6a15b, #e6c07b);
   color: white;

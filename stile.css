@@ -181,6 +181,25 @@ p {
 
     .track { display:flex; transition: transform 0.5s ease; }
 
+    .banner-presentes {
+  text-align: center;
+  padding: 50px 20px;
+  background: #f8f5f0;
+}
+
+.banner-presentes h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 34px;
+  color: #b48a5a;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+}
+
+.banner-presentes p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  color: #666;
+}
     .card {
       min-width:260px;
       margin:10px;

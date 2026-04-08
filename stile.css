@@ -183,6 +183,11 @@ p {
   padding: 50px 20px;
   background: #f8f5f0;
 }
+.track {
+  display: flex;
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
 
 .banner-presentes h2 {
   font-family: 'Playfair Display', serif;

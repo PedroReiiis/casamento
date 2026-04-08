@@ -83,23 +83,69 @@ document.body.addEventListener("click", () => {
 }, { once: true });
 
   // CARROSSEL
-  const track=document.getElementById('track');
-  let index=0;
+const track = document.getElementById('track');
+let cards = track.children;
 
-  function mover(dir){
-    const w=track.children[0].offsetWidth+20;
-    index+=dir;
+// CLONA primeiro e último
+const firstClone = cards[0].cloneNode(true);
+const lastClone = cards[cards.length - 1].cloneNode(true);
 
-    if(index<0) index=track.children.length-1;
-    if(index>=track.children.length) index=0;
+track.appendChild(firstClone);
+track.insertBefore(lastClone, cards[0]);
 
-    track.style.transform=`translateX(-${index*w}px)`;
+let index = 1; // começa no primeiro real
+
+function atualizarPosicao(semAnimacao = false) {
+  const w = track.children[0].offsetWidth + 20;
+
+  if (semAnimacao) {
+    track.style.transition = "none";
+  } else {
+    track.style.transition = "transform 0.8s cubic-bezier(0.22, 1, 0.36, 1)";
   }
 
-  setInterval(()=>mover(1),4000);
+  track.style.transform = `translate3d(-${index * w}px, 0, 0)`;
+}
+
+// posição inicial
+window.onload = () => {
+  atualizarPosicao(true);
+};
+
+// mover
+function mover(dir) {
+  index++;
+  atualizarPosicao();
+
+  // quando chega no clone final
+  if (index === track.children.length - 1) {
+    setTimeout(() => {
+      index = 1;
+      atualizarPosicao(true);
+    }, 800);
+  }
+
+  // quando chega no clone inicial
+  if (index === 0) {
+    setTimeout(() => {
+      index = track.children.length - 2;
+      atualizarPosicao(true);
+    }, 800);
+  }
+}
+
+// autoplay
+let intervalo = setInterval(() => mover(1), 5000);
+
+// pausa no hover
+track.addEventListener("mouseenter", () => clearInterval(intervalo));
+track.addEventListener("mouseleave", () => {
+  intervalo = setInterval(() => mover(1), 5000);
+});
 
   
 const intro = document.getElementById("intro");
+
 
 // inicia após interação (necessário)
 document.body.addEventListener("click", () => {
@@ -116,7 +162,7 @@ document.body.addEventListener("click", () => {
     } else {
       clearInterval(fade);
     }
-  }, 200);
+  }, 100);
 
 }, { once: true });
 
@@ -125,3 +171,4 @@ document.body.addEventListener("click", () => {
 setTimeout(() => {
   intro.classList.add("fade-out");
 }, 4000);
+

@@ -148,8 +148,11 @@ const intro = document.getElementById("intro");
 
 
 // inicia após interação (necessário)
+musica.currentTime
+
 document.body.addEventListener("click", () => {
-  
+
+  musica.currentTime = 5; // começa no segundo 5
   musica.volume = 0;
   musica.play();
 
@@ -165,6 +168,8 @@ document.body.addEventListener("click", () => {
   }, 100);
 
 }, { once: true });
+
+musica.currentTime = 7;
 
 
 // some com a tela depois de alguns segundos
